@@ -38,6 +38,8 @@ Full Stack Developer with hands-on experience in Flutter, Python, Flask, and AI 
 ## 📬 Contact
 
 - 📧 haseeb.79e@gmail.com
-- 📞 +92 315 684 1199
-- 💼 [LinkedIn](https://www.linkedin.com/in/haseeb-ur-rehman-40b00930b/)
-- 🐙 [GitHub](https://github.com/haseeb-28)
+
+[![Fiverr](https://img.shields.io/badge/Fiverr-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white)](https://www.fiverr.com/haseebx28)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/haseeb-ur-rehman-40b00930b/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/haseeb-28)
+
