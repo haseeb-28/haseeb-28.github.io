@@ -105,6 +105,10 @@ section{padding:80px 8vw}
 .proj-badge.nlp{background:rgba(168,255,62,0.08);color:var(--lime);border:1px solid rgba(168,255,62,0.2)}
 .proj-badge.web{background:rgba(189,147,249,0.08);color:#BD93F9;border:1px solid rgba(189,147,249,0.2)}
 .proj-badge.mob{background:rgba(255,184,108,0.08);color:#FFB86C;border:1px solid rgba(255,184,108,0.2)}
+.proj-badge.tool{background:rgba(0,212,255,0.1);color:var(--cyan);border:1px solid rgba(0,212,255,0.2)}
+.proj-links{display:flex;gap:10px;margin-top:14px}
+.proj-link{font-family:var(--mono);font-size:.7rem;color:var(--cyan);text-decoration:none;letter-spacing:.04em;border:1px solid var(--border);padding:5px 12px;border-radius:6px;transition:all .2s}
+.proj-link:hover{background:var(--cyan-dim);border-color:var(--cyan);transform:translateY(-1px)}
 .proj-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.01em}
 .proj-desc{font-size:.84rem;color:var(--text2);line-height:1.75;flex:1;font-weight:300}
 .proj-tech{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 0}
@@ -213,7 +217,7 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
       <span class="t-sep">}</span>
     </div>
     <div class="stats-row">
-      <div class="stat-box"><div class="stat-n">4+</div><div class="stat-l">Projects</div></div>
+      <div class="stat-box"><div class="stat-n">5+</div><div class="stat-l">Projects</div></div>
       <div class="stat-box"><div class="stat-n">98%</div><div class="stat-l">AI Accuracy</div></div>
       <div class="stat-box"><div class="stat-n">2</div><div class="stat-l">Internships</div></div>
       <div class="stat-box"><div class="stat-n">4</div><div class="stat-l">Certifications</div></div>
@@ -335,6 +339,19 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
         <span class="pt">Flutter</span><span class="pt">Dart</span><span class="pt">Supabase</span><span class="pt">Material 3</span>
       </div>
       <div class="proj-metric">&#x1F4F1; Release APK &middot; Physical device tested</div>
+    </div>
+    <div class="proj-card">
+      <span class="proj-badge tool">Full Stack &middot; Web Tool</span>
+      <div class="proj-title">Resume Forge</div>
+      <p class="proj-desc">Resume builder with a built-in real-time ATS compatibility scorer. Live ATS-safe preview, keyword match scoring against any pasted job description, and instant actionable fixes &mdash; built for any job role, not just tech.</p>
+      <div class="proj-tech">
+        <span class="pt">React</span><span class="pt">Vite</span><span class="pt">Tailwind CSS</span><span class="pt">jsPDF</span>
+      </div>
+      <div class="proj-metric">&#x1F4C4; Real-time ATS scoring &middot; client-side only, no backend</div>
+      <div class="proj-links">
+        <a href="https://resume-forge-five-ruddy.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-link">Live Demo &rarr;</a>
+        <a href="https://github.com/haseeb-28/resume-forge" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
