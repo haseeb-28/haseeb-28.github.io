@@ -13,6 +13,7 @@
   --cyan:#00D4FF;--cyan2:#00AACC;
   --cyan-dim:rgba(0,212,255,0.12);--cyan-glow:rgba(0,212,255,0.06);
   --lime:#A8FF3E;--lime-dim:rgba(168,255,62,0.1);
+  --amber:#FFB86C;--amber-dim:rgba(255,184,108,0.1);
   --text:#E8F4FD;--text2:#8BA7C7;--text3:#4A6B8A;
   --border:rgba(0,212,255,0.15);--border2:rgba(0,212,255,0.08);
   --mono:'JetBrains Mono',monospace;--sans:'Space Grotesk',sans-serif;--r:10px;
@@ -31,6 +32,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 .nav-links a{font-family:var(--mono);font-size:.7rem;font-weight:500;color:var(--text2);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:6px;border:1px solid transparent;transition:all .2s}
 .nav-links a:hover{color:var(--cyan);border-color:var(--border);background:var(--cyan-dim)}
 .nav-badge{font-family:var(--mono);font-size:.65rem;color:var(--lime);border:1px solid rgba(168,255,62,0.3);background:rgba(168,255,62,0.07);padding:4px 10px;border-radius:40px;letter-spacing:.08em;margin-left:8px}
+.nav-resume{font-family:var(--mono);font-size:.68rem;font-weight:700;color:#050A14;background:var(--cyan);padding:6px 14px;border-radius:6px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;margin-left:10px;transition:all .2s}
+.nav-resume:hover{background:#fff;transform:translateY(-1px)}
 
 /* HERO */
 .hero{min-height:88vh;display:grid;grid-template-columns:1fr 420px;align-items:center;padding:0 8vw;gap:60px;position:relative;overflow:hidden}
@@ -49,6 +52,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 .btn-primary:hover{background:#fff;transform:translateY(-2px)}
 .btn-ghost{border:1px solid var(--border);color:var(--text2);padding:12px 28px;border-radius:8px;font-size:.85rem;font-weight:500;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);transition:all .2s}
 .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-dim);transform:translateY(-2px)}
+.btn-resume{border:1px solid rgba(168,255,62,0.35);color:var(--lime);padding:12px 28px;border-radius:8px;font-size:.85rem;font-weight:700;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);transition:all .2s;display:inline-flex;align-items:center;gap:8px;background:var(--lime-dim)}
+.btn-resume:hover{background:rgba(168,255,62,0.18);transform:translateY(-2px)}
 
 /* TERMINAL */
 .terminal{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
@@ -106,6 +111,8 @@ section{padding:80px 8vw}
 .proj-badge.web{background:rgba(189,147,249,0.08);color:#BD93F9;border:1px solid rgba(189,147,249,0.2)}
 .proj-badge.mob{background:rgba(255,184,108,0.08);color:#FFB86C;border:1px solid rgba(255,184,108,0.2)}
 .proj-badge.tool{background:rgba(0,212,255,0.1);color:var(--cyan);border:1px solid rgba(0,212,255,0.2)}
+.proj-badge.saas{background:rgba(168,255,62,0.08);color:var(--lime);border:1px solid rgba(168,255,62,0.2)}
+.proj-badge.data{background:rgba(189,147,249,0.08);color:#BD93F9;border:1px solid rgba(189,147,249,0.2)}
 .proj-links{display:flex;gap:10px;margin-top:14px}
 .proj-link{font-family:var(--mono);font-size:.7rem;color:var(--cyan);text-decoration:none;letter-spacing:.04em;border:1px solid var(--border);padding:5px 12px;border-radius:6px;transition:all .2s}
 .proj-link:hover{background:var(--cyan-dim);border-color:var(--cyan);transform:translateY(-1px)}
@@ -155,6 +162,8 @@ section{padding:80px 8vw}
 .cc-ico{font-family:var(--mono);font-size:.72rem;color:var(--cyan);width:36px;height:36px;background:var(--cyan-dim);border:1px solid rgba(0,212,255,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cc-lbl{font-family:var(--mono);font-size:.65rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
 .cc-val{font-size:.88rem;font-weight:500;color:var(--text)}
+.cc.resume-cc{border-color:rgba(168,255,62,0.25)}
+.cc.resume-cc .cc-ico{color:var(--lime);background:var(--lime-dim);border-color:rgba(168,255,62,0.25)}
 
 footer{background:var(--surface);border-top:1px solid var(--border2);padding:22px 8vw;display:flex;justify-content:space-between;align-items:center}
 .footer-l{font-family:var(--mono);font-size:.78rem;color:var(--text3)}
@@ -169,6 +178,7 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
   section{padding:60px 6vw}
   .nav-links a{padding:5px 8px;font-size:.65rem}
   .nav-badge{display:none}
+  .nav-resume{font-size:.6rem;padding:5px 10px}
 }
 </style>
 </head>
@@ -183,6 +193,7 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
     <span class="nav-badge">Available for Opportunities</span>
+    <a href="./assets/Haseeb_Ur_Rehman_Resume.pdf" download class="nav-resume">Resume ↓</a>
   </div>
 </nav>
 
@@ -197,6 +208,7 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
     <p class="hero-desc">Building intelligent mobile and web applications &mdash; where deep learning meets elegant engineering. BSIT graduate with hands-on AI, Flutter, and Flask deployment experience.</p>
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">View Projects &rarr;</a>
+      <a href="./assets/Haseeb_Ur_Rehman_Resume.pdf" download class="btn-resume">&#x2B07; Download Resume</a>
       <a href="#contact" class="btn-ghost">Let's Connect</a>
     </div>
   </div>
@@ -217,7 +229,7 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
       <span class="t-sep">}</span>
     </div>
     <div class="stats-row">
-      <div class="stat-box"><div class="stat-n">5+</div><div class="stat-l">Projects</div></div>
+      <div class="stat-box"><div class="stat-n">7+</div><div class="stat-l">Projects</div></div>
       <div class="stat-box"><div class="stat-n">98%</div><div class="stat-l">AI Accuracy</div></div>
       <div class="stat-box"><div class="stat-n">2</div><div class="stat-l">Internships</div></div>
       <div class="stat-box"><div class="stat-n">4</div><div class="stat-l">Certifications</div></div>
@@ -353,6 +365,32 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
         <a href="https://github.com/haseeb-28/resume-forge" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub &rarr;</a>
       </div>
     </div>
+    <div class="proj-card star">
+      <span class="proj-badge saas">Full Stack &middot; AI SaaS</span>
+      <div class="proj-title">SpendWise</div>
+      <p class="proj-desc">AI-powered spend audit tool for startups. Analyzes company expenses and surfaces savings opportunities using the Anthropic API, with a full CI/CD pipeline via GitHub Actions. Built as a client deliverable.</p>
+      <div class="proj-tech">
+        <span class="pt">Next.js 14</span><span class="pt">PocketBase</span><span class="pt">Anthropic API</span><span class="pt">GitHub Actions</span>
+      </div>
+      <div class="proj-metric">&#x26A1; Full CI/CD pipeline &middot; live client deliverable</div>
+      <div class="proj-links">
+        <a href="https://spendwise-ai-mu.vercel.app" target="_blank" rel="noopener noreferrer" class="proj-link">Live Demo &rarr;</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub &rarr;</a>
+      </div>
+    </div>
+    <div class="proj-card">
+      <span class="proj-badge data">Data Analytics &middot; Dashboard</span>
+      <div class="proj-title">NayePankh Analytics Dashboard</div>
+      <p class="proj-desc">8-page interactive analytics dashboard built as a data analyst internship deliverable &mdash; covering KPI tracking, trend visualization, and drill-down reporting for stakeholder decision-making.</p>
+      <div class="proj-tech">
+        <span class="pt">React</span><span class="pt">Recharts</span><span class="pt">Vercel</span>
+      </div>
+      <div class="proj-metric">&#x1F4CA; 8 dashboard pages &middot; internship deliverable</div>
+      <div class="proj-links">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">Live Demo &rarr;</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub &rarr;</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -429,11 +467,14 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
       <p class="contact-sub" style="margin-top:16px">Open to Flutter internships, freelance projects, and full-time roles. Fast response guaranteed.</p>
     </div>
     <div class="contact-cards">
+      <a href="./assets/Haseeb_Ur_Rehman_Resume.pdf" download class="cc resume-cc">
+        <div class="cc-ico">[&#x2B07;]</div>
+        <div><div class="cc-lbl">Resume</div><div class="cc-val">Download PDF</div></div>
+      </a>
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=haseeb.79e%40gmail.com" target="_blank" rel="noopener noreferrer" class="cc">
         <div class="cc-ico">[&#x2709;]</div>
         <div><div class="cc-lbl">Email</div><div class="cc-val">haseeb.79e@gmail.com</div></div>
       </a>
-      
       <a href="https://www.linkedin.com/in/haseeb-ur-rehman-40b00930b/" target="_blank" class="cc">
         <div class="cc-ico">[in]</div>
         <div><div class="cc-lbl">LinkedIn</div><div class="cc-val">haseeb-ur-rehman-40b00930b</div></div>
