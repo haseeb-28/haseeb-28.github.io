@@ -1,411 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Haseeb Ur Rehman — Full Stack Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#050A14;--bg2:#0A1628;--bg3:#0F1F3D;
-  --surface:#111C35;--surface2:#162040;
-  --cyan:#00D4FF;--cyan2:#00AACC;
-  --cyan-dim:rgba(0,212,255,0.12);--cyan-glow:rgba(0,212,255,0.06);
-  --lime:#A8FF3E;--lime-dim:rgba(168,255,62,0.1);
-  --amber:#FFB86C;--amber-dim:rgba(255,184,108,0.1);
-  --text:#E8F4FD;--text2:#8BA7C7;--text3:#4A6B8A;
-  --border:rgba(0,212,255,0.15);--border2:rgba(0,212,255,0.08);
-  --mono:'JetBrains Mono',monospace;--sans:'Space Grotesk',sans-serif;--r:10px;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;font-size:16px}
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--cyan2);border-radius:2px}
-
-/* NAV */
-.nav{background:rgba(5,10,20,0.96);border-bottom:1px solid var(--border);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:999;backdrop-filter:blur(12px)}
-.nav-logo{font-family:var(--mono);font-size:.9rem;font-weight:700;color:var(--cyan);letter-spacing:.02em}
-.nav-logo span{color:var(--text3);font-weight:400}
-.nav-links{display:flex;align-items:center;gap:4px}
-.nav-links a{font-family:var(--mono);font-size:.7rem;font-weight:500;color:var(--text2);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:6px;border:1px solid transparent;transition:all .2s}
-.nav-links a:hover{color:var(--cyan);border-color:var(--border);background:var(--cyan-dim)}
-.nav-badge{font-family:var(--mono);font-size:.65rem;color:var(--lime);border:1px solid rgba(168,255,62,0.3);background:rgba(168,255,62,0.07);padding:4px 10px;border-radius:40px;letter-spacing:.08em;margin-left:8px}
-.nav-resume{font-family:var(--mono);font-size:.68rem;font-weight:700;color:#050A14;background:var(--cyan);padding:6px 14px;border-radius:6px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;margin-left:10px;transition:all .2s}
-.nav-resume:hover{background:#fff;transform:translateY(-1px)}
-
-/* HERO */
-.hero{min-height:88vh;display:grid;grid-template-columns:1fr 420px;align-items:center;padding:0 8vw;gap:60px;position:relative;overflow:hidden}
-.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
-.hero-bg-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,0.05) 0%,transparent 70%);right:-100px;top:50%;transform:translateY(-50%);pointer-events:none}
-.hero-eyebrow{font-family:var(--mono);font-size:.72rem;color:var(--cyan);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--cyan)}
-.hero-name{font-size:clamp(2.4rem,4.5vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin-bottom:8px;color:var(--text)}
-.hero-name .cyan{color:var(--cyan)}
-.hero-role{font-family:var(--mono);font-size:1rem;color:var(--text2);margin-bottom:24px;font-weight:400}
-.hero-role .blink{animation:blink 1.1s step-end infinite;color:var(--cyan)}
-@keyframes blink{50%{opacity:0}}
-.hero-desc{font-size:.95rem;color:var(--text2);line-height:1.8;max-width:480px;margin-bottom:36px;font-weight:300}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{background:var(--cyan);color:#050A14;padding:12px 28px;border-radius:8px;font-size:.85rem;font-weight:700;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);transition:all .2s;display:inline-flex;align-items:center;gap:8px}
-.btn-primary:hover{background:#fff;transform:translateY(-2px)}
-.btn-ghost{border:1px solid var(--border);color:var(--text2);padding:12px 28px;border-radius:8px;font-size:.85rem;font-weight:500;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);transition:all .2s}
-.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-dim);transform:translateY(-2px)}
-.btn-resume{border:1px solid rgba(168,255,62,0.35);color:var(--lime);padding:12px 28px;border-radius:8px;font-size:.85rem;font-weight:700;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);transition:all .2s;display:inline-flex;align-items:center;gap:8px;background:var(--lime-dim)}
-.btn-resume:hover{background:rgba(168,255,62,0.18);transform:translateY(-2px)}
-
-/* TERMINAL */
-.terminal{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.terminal-bar{background:var(--bg3);padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border2)}
-.t-dot{width:10px;height:10px;border-radius:50%}
-.t-dot.r{background:#ff5f57}.t-dot.y{background:#febc2e}.t-dot.g{background:#28c840}
-.t-title{font-family:var(--mono);font-size:.7rem;color:var(--text3);margin-left:auto;letter-spacing:.08em}
-.terminal-body{padding:22px 24px;font-family:var(--mono);font-size:.78rem;line-height:2}
-.t-comment{color:var(--text3)}.t-key{color:var(--cyan)}.t-val{color:#A8FF3E}.t-str{color:#FFB86C}.t-num{color:#BD93F9}.t-sep{color:var(--text3)}
-.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px 20px}
-.stat-box{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:14px;text-align:center}
-.stat-n{font-family:var(--mono);font-size:1.4rem;font-weight:700;color:var(--cyan)}
-.stat-l{font-size:.65rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
-
-/* SECTIONS */
-section{padding:80px 8vw}
-.sec-label{font-family:var(--mono);font-size:.68rem;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
-.sec-label::before{content:'//';color:var(--text3)}
-.sec-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;letter-spacing:-.025em;color:var(--text);margin-bottom:52px;line-height:1.15}
-.sec-title .hl{color:var(--cyan)}
-
-/* ABOUT */
-.about{background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2)}
-.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:start}
-.about-text{font-size:.95rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:16px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.tag{font-family:var(--mono);font-size:.7rem;border:1px solid var(--border);color:var(--text2);padding:5px 14px;border-radius:40px;letter-spacing:.05em;background:var(--surface)}
-.info-cards{display:flex;flex-direction:column;gap:1px;border:1px solid var(--border2);border-radius:12px;overflow:hidden}
-.info-card{background:var(--surface);padding:14px 18px;display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--border2)}
-.info-card:last-child{border-bottom:none}
-.info-ico{font-family:var(--mono);font-size:.7rem;color:var(--cyan);width:28px;flex-shrink:0}
-.info-lbl{font-size:.68rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px;font-family:var(--mono)}
-.info-v{font-size:.85rem;color:var(--text);font-weight:500}
-.info-v.green{color:var(--lime)}
-
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.skill-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:22px;transition:border-color .2s,transform .2s}
-.skill-card:hover{border-color:var(--cyan);transform:translateY(-3px)}
-.skill-cat{font-family:var(--mono);font-size:.65rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.skill-cat::before{content:'>';color:var(--text3)}
-.skill-items{display:flex;flex-wrap:wrap;gap:7px}
-.sk{background:var(--bg3);border:1px solid var(--border2);border-radius:5px;padding:4px 10px;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
-
-/* PROJECTS */
-.projects{background:var(--bg2)}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.proj-card{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:26px;display:flex;flex-direction:column;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
-.proj-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--cyan-dim)}
-.proj-card.star::after{background:var(--cyan)}
-.proj-card:hover{border-color:var(--border);transform:translateY(-4px)}
-.proj-badge{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:40px;margin-bottom:14px;display:inline-block;width:fit-content}
-.proj-badge.ai{background:rgba(0,212,255,0.1);color:var(--cyan);border:1px solid rgba(0,212,255,0.2)}
-.proj-badge.nlp{background:rgba(168,255,62,0.08);color:var(--lime);border:1px solid rgba(168,255,62,0.2)}
-.proj-badge.web{background:rgba(189,147,249,0.08);color:#BD93F9;border:1px solid rgba(189,147,249,0.2)}
-.proj-badge.mob{background:rgba(255,184,108,0.08);color:#FFB86C;border:1px solid rgba(255,184,108,0.2)}
-.proj-badge.tool{background:rgba(0,212,255,0.1);color:var(--cyan);border:1px solid rgba(0,212,255,0.2)}
-.proj-badge.saas{background:rgba(168,255,62,0.08);color:var(--lime);border:1px solid rgba(168,255,62,0.2)}
-.proj-badge.data{background:rgba(189,147,249,0.08);color:#BD93F9;border:1px solid rgba(189,147,249,0.2)}
-.proj-links{display:flex;gap:10px;margin-top:14px}
-.proj-link{font-family:var(--mono);font-size:.7rem;color:var(--cyan);text-decoration:none;letter-spacing:.04em;border:1px solid var(--border);padding:5px 12px;border-radius:6px;transition:all .2s}
-.proj-link:hover{background:var(--cyan-dim);border-color:var(--cyan);transform:translateY(-1px)}
-.proj-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.01em}
-.proj-desc{font-size:.84rem;color:var(--text2);line-height:1.75;flex:1;font-weight:300}
-.proj-tech{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 0}
-.pt{font-family:var(--mono);font-size:.67rem;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;padding:3px 8px;color:var(--text3)}
-.proj-metric{font-family:var(--mono);font-size:.75rem;color:var(--lime);background:rgba(168,255,62,0.06);border:1px solid rgba(168,255,62,0.15);border-radius:6px;padding:7px 12px;margin-top:14px}
-
-/* EXPERIENCE */
-.exp-list{display:flex;flex-direction:column}
-.exp-item{display:grid;grid-template-columns:160px 24px 1fr;gap:0 20px;padding:36px 0;border-bottom:1px solid var(--border2)}
-.exp-item:last-child{border-bottom:none}
-.exp-date{font-family:var(--mono);font-size:.72rem;color:var(--text3);letter-spacing:.04em;padding-top:3px;text-align:right}
-.exp-line{display:flex;flex-direction:column;align-items:center}
-.exp-dot{width:10px;height:10px;border-radius:50%;background:var(--cyan);flex-shrink:0;margin-top:4px;border:2px solid var(--bg)}
-.exp-track{flex:1;width:1px;background:var(--border2);margin-top:6px}
-.exp-role{font-size:.98rem;font-weight:600;color:var(--text);margin-bottom:2px}
-.exp-co{font-family:var(--mono);font-size:.75rem;color:var(--cyan);margin-bottom:12px}
-.exp-bullets{list-style:none}
-.exp-bullets li{font-size:.84rem;color:var(--text2);padding:3px 0 3px 16px;position:relative;font-weight:300;line-height:1.7}
-.exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--text3);font-size:.7rem;top:5px}
-
-/* EDU & CERTS */
-.edu-certs{background:var(--bg2)}
-.edu-cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:30px;position:relative;overflow:hidden}
-.edu-card::before{content:'{ }';position:absolute;right:20px;bottom:14px;font-family:var(--mono);font-size:3.5rem;font-weight:700;color:rgba(0,212,255,0.04);line-height:1}
-.edu-chip{font-family:var(--mono);font-size:.65rem;color:var(--cyan);border:1px solid rgba(0,212,255,0.25);background:var(--cyan-dim);padding:4px 12px;border-radius:40px;display:inline-block;margin-bottom:16px;letter-spacing:.08em}
-.edu-deg{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:4px}
-.edu-uni{font-family:var(--mono);font-size:.78rem;color:var(--text2)}
-.edu-courses{font-size:.78rem;color:var(--text3);margin-top:16px;line-height:1.7;font-weight:300}
-.certs{display:flex;flex-direction:column;gap:10px}
-.cert{background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;transition:border-color .2s}
-.cert:hover{border-color:var(--border)}
-.cert-ico{font-family:var(--mono);font-size:.7rem;color:var(--cyan);width:32px;flex-shrink:0}
-.cert-name{font-size:.84rem;font-weight:500;color:var(--text)}
-.cert-org{font-family:var(--mono);font-size:.68rem;color:var(--text3);margin-top:2px}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.contact-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--text);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
-.contact-sub{font-size:.9rem;color:var(--text2);line-height:1.8;font-weight:300}
-.contact-cards{display:flex;flex-direction:column;gap:12px}
-.cc{background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:border-color .2s,transform .2s}
-.cc:hover{border-color:var(--cyan);transform:translateX(4px)}
-.cc-ico{font-family:var(--mono);font-size:.72rem;color:var(--cyan);width:36px;height:36px;background:var(--cyan-dim);border:1px solid rgba(0,212,255,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cc-lbl{font-family:var(--mono);font-size:.65rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
-.cc-val{font-size:.88rem;font-weight:500;color:var(--text)}
-.cc.resume-cc{border-color:rgba(168,255,62,0.25)}
-.cc.resume-cc .cc-ico{color:var(--lime);background:var(--lime-dim);border-color:rgba(168,255,62,0.25)}
-
-footer{background:var(--surface);border-top:1px solid var(--border2);padding:22px 8vw;display:flex;justify-content:space-between;align-items:center}
-.footer-l{font-family:var(--mono);font-size:.78rem;color:var(--text3)}
-.footer-r{font-family:var(--mono);font-size:.68rem;color:var(--text3)}
-
-@media(max-width:768px){
-  .hero{grid-template-columns:1fr;padding:60px 6vw}
-  .terminal{display:none}
-  .about-grid,.edu-cert-grid,.contact-grid{grid-template-columns:1fr}
-  .exp-item{grid-template-columns:1fr}
-  .exp-date,.exp-line{display:none}
-  section{padding:60px 6vw}
-  .nav-links a{padding:5px 8px;font-size:.65rem}
-  .nav-badge{display:none}
-  .nav-resume{font-size:.6rem;padding:5px 10px}
-}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haseeb Ur Rehman — Full Stack Web & App Developer</title>
+<meta name="description" content="Haseeb Ur Rehman, Full Stack Web & App Developer building products with Flutter, Flask, and React, with AI/ML integrated where it matters.">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-logo">haseeb<span>.dev</span></div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-    <span class="nav-badge">Available for Opportunities</span>
-    <a href="./assets/Haseeb_Ur_Rehman_Resume.pdf" download class="nav-resume">Resume ↓</a>
-  </div>
-</nav>
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-bg-orb"></div>
-  <div>
-    <div class="hero-eyebrow">Full Stack Developer &middot; Islamabad, Pakistan</div>
-    <h1 class="hero-name">Haseeb<br>Ur <span class="cyan">Rehman</span></h1>
-    <div class="hero-role">Flutter &middot; AI/ML &middot; Backend<span class="blink">_</span></div>
-    <p class="hero-desc">Building intelligent mobile and web applications &mdash; where deep learning meets elegant engineering. BSIT graduate with hands-on AI, Flutter, and Flask deployment experience.</p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn-primary">View Projects &rarr;</a>
-      <a href="./assets/Haseeb_Ur_Rehman_Resume.pdf" download class="btn-resume">&#x2B07; Download Resume</a>
-      <a href="#contact" class="btn-ghost">Let's Connect</a>
+<header>
+  <nav>
+    <a href="#" class="logo">haseeb.dev</a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a href="assets/resume.pdf" class="nav-cta" data-magnet="0.25">Resume</a>
     </div>
-  </div>
-  <div class="terminal">
-    <div class="terminal-bar">
-      <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
-      <span class="t-title">haseeb.profile.json</span>
-    </div>
-    <div class="terminal-body">
-      <span class="t-sep">{</span><br>
-      <span class="t-key">&nbsp;&nbsp;"name"</span><span class="t-sep">: </span><span class="t-str">"Haseeb Ur Rehman"</span><span class="t-sep">,</span><br>
-      <span class="t-key">&nbsp;&nbsp;"role"</span><span class="t-sep">: </span><span class="t-str">"Full Stack Developer"</span><span class="t-sep">,</span><br>
-      <span class="t-key">&nbsp;&nbsp;"degree"</span><span class="t-sep">: </span><span class="t-str">"BSIT &middot; Bahria Univ"</span><span class="t-sep">,</span><br>
-      <span class="t-key">&nbsp;&nbsp;"ai_accuracy"</span><span class="t-sep">: </span><span class="t-num">98</span><span class="t-sep">,</span><br>
-      <span class="t-key">&nbsp;&nbsp;"stack"</span><span class="t-sep">: [</span><span class="t-str">"Flutter"</span><span class="t-sep">, </span><span class="t-str">"Flask"</span><span class="t-sep">, </span><span class="t-str">"PyTorch"</span><span class="t-sep">],</span><br>
-      <span class="t-key">&nbsp;&nbsp;"location"</span><span class="t-sep">: </span><span class="t-str">"Islamabad, PK"</span><span class="t-sep">,</span><br>
-      <span class="t-key">&nbsp;&nbsp;"status"</span><span class="t-sep">: </span><span class="t-val">"open_to_opportunities"</span><br>
-      <span class="t-sep">}</span>
-    </div>
-    <div class="stats-row">
-      <div class="stat-box"><div class="stat-n">7+</div><div class="stat-l">Projects</div></div>
-      <div class="stat-box"><div class="stat-n">98%</div><div class="stat-l">AI Accuracy</div></div>
-      <div class="stat-box"><div class="stat-n">2</div><div class="stat-l">Internships</div></div>
-      <div class="stat-box"><div class="stat-n">4</div><div class="stat-l">Certifications</div></div>
-    </div>
-  </div>
-</section>
+  </nav>
+</header>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="sec-label">01 &mdash; About Me</div>
-  <h2 class="sec-title">Turning complex problems<br>into <span class="hl">elegant solutions</span></h2>
-  <div class="about-grid">
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;padding-top:168px;">
     <div>
-      <p class="about-text">I'm a Full Stack Developer and BSIT graduate from Bahria University Islamabad with a passion for building applications that merge mobile engineering, backend systems, and artificial intelligence into seamless user experiences.</p>
-      <p class="about-text">From training PyTorch models that detect crop diseases with 98% accuracy to crafting Flutter UIs used in real hospital environments &mdash; I build things that actually work in the real world.</p>
-      <div class="tags">
-        <span class="tag">Flutter Dev</span>
-        <span class="tag">AI/ML Integration</span>
-        <span class="tag">Flask REST APIs</span>
-        <span class="tag">Deep Learning</span>
-        <span class="tag">Freelance Ready</span>
-        <span class="tag">Open to Collaborate</span>
+      <div class="avatar-row">
+        <div class="avatar-ring">
+          <img src="assets/profile.jpg" alt="Haseeb Ur Rehman" class="avatar-img" onerror="this.parentElement.classList.add('avatar-fallback')">
+        </div>
+      </div>
+      <h1>
+        <span class="line"><span>Haseeb Ur Rehman</span></span>
+        <span class="line"><span>Full Stack Web & App Developer</span></span>
+      </h1>
+      <p class="lede">I build production apps across web and mobile, in Flutter, Flask, and React, with AI/ML integrated where it actually earns its place. BSIT graduate based in Islamabad, Pakistan.</p>
+      <div class="cta-row">
+        <a href="#work" class="btn btn-primary" data-magnet="0.3">View Work</a>
+        <a href="assets/resume.pdf" class="btn btn-ghost" data-magnet="0.3">Download Resume</a>
       </div>
     </div>
-    <div class="info-cards">
-      <div class="info-card">
-        <div class="info-ico">[edu]</div>
-        <div><div class="info-lbl">Education</div><div class="info-v">BSIT &middot; Bahria University Islamabad</div></div>
+    <div class="hero-art">
+      <div class="browser float-loop">
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="browser-body">
+          <div class="mock-row">
+            <div class="mock-badge"></div>
+            <div class="mock-pill"></div>
+            <div class="mock-pill short"></div>
+          </div>
+          <div class="mock-heading"></div>
+          <div class="mock-text w90"></div>
+          <div class="mock-text w70"></div>
+          <div class="mock-stats">
+            <div class="mock-stat"><div class="mock-stat-icon"></div><div class="mock-stat-bar"></div></div>
+            <div class="mock-stat"><div class="mock-stat-icon"></div><div class="mock-stat-bar"></div></div>
+          </div>
+          <div class="mock-cta"></div>
+        </div>
       </div>
-      <div class="info-card">
-        <div class="info-ico">[loc]</div>
-        <div><div class="info-lbl">Location</div><div class="info-v">Islamabad, Pakistan</div></div>
-      </div>
-      <div class="info-card">
-        <div class="info-ico">[yr]</div>
-        <div><div class="info-lbl">Graduated</div><div class="info-v">January 2026</div></div>
-      </div>
-      <div class="info-card">
-        <div class="info-ico">[ln]</div>
-        <div><div class="info-lbl">Languages</div><div class="info-v">English &middot; Urdu &middot; Saraiki</div></div>
-      </div>
-      <div class="info-card">
-        <div class="info-ico">[>>]</div>
-        <div><div class="info-lbl">Status</div><div class="info-v green">Open to Opportunities</div></div>
+      <div class="phone float-loop float-loop-delayed">
+        <div class="phone-screen">
+          <div class="phone-notch"></div>
+          <div class="p-header"></div>
+          <div class="p-item"><div class="p-icon"></div><div class="p-line-sm"></div></div>
+          <div class="p-item"><div class="p-icon"></div><div class="p-line-sm"></div></div>
+          <div class="p-item"><div class="p-icon"></div><div class="p-line-sm"></div></div>
+          <div class="p-card"></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="sec-label">02 &mdash; Tech Stack</div>
-  <h2 class="sec-title">Skills &amp; <span class="hl">Technologies</span></h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-cat">Languages</div>
-      <div class="skill-items">
-        <span class="sk">Python</span><span class="sk">Dart</span><span class="sk">SQL</span><span class="sk">HTML5</span><span class="sk">CSS3</span><span class="sk">JavaScript</span>
-      </div>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-head">
+      <h2>About</h2>
     </div>
-    <div class="skill-card">
-      <div class="skill-cat">Frameworks</div>
-      <div class="skill-items">
-        <span class="sk">Flutter</span><span class="sk">Flask</span><span class="sk">PyTorch</span><span class="sk">NLP</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">Databases</div>
-      <div class="skill-items">
-        <span class="sk">MySQL</span><span class="sk">Firebase</span><span class="sk">Supabase</span><span class="sk">PostgreSQL</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-cat">Specializations</div>
-      <div class="skill-items">
-        <span class="sk">REST APIs</span><span class="sk">Mobile Dev</span><span class="sk">Deep Learning</span><span class="sk">Sentiment Analysis</span><span class="sk">Backend Arch</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects" id="projects">
-  <div class="sec-label">03 &mdash; Portfolio</div>
-  <h2 class="sec-title">Featured <span class="hl">Projects</span></h2>
-  <div class="projects-grid">
-    <div class="proj-card star">
-      <span class="proj-badge ai">AI &middot; Final Year Project</span>
-      <div class="proj-title">Agriguard</div>
-      <p class="proj-desc">AI-powered rice disease detection using EfficientNet-B0. Full-stack mobile app with Flask REST APIs delivering real-time inference and a Supabase-backed user history system.</p>
-      <div class="proj-tech">
-        <span class="pt">Flutter</span><span class="pt">Flask</span><span class="pt">PyTorch</span><span class="pt">Supabase</span><span class="pt">EfficientNet-B0</span>
-      </div>
-      <div class="proj-metric">&#x26A1; 98% validation accuracy &middot; &lt;2s response time</div>
-    </div>
-    <div class="proj-card">
-      <span class="proj-badge nlp">NLP &middot; Sentiment Analysis</span>
-      <div class="proj-title">SentimentAI</div>
-      <p class="proj-desc">Movie review sentiment system trained on 50,000 IMDB reviews using Logistic Regression (90%) and Naive Bayes (86%). Flutter mobile interface for real-time predictions.</p>
-      <div class="proj-tech">
-        <span class="pt">Python</span><span class="pt">Flask</span><span class="pt">NLP</span><span class="pt">Flutter</span><span class="pt">Hive</span>
-      </div>
-      <div class="proj-metric">&#x1F4CA; 90% accuracy &middot; 50K training samples</div>
-    </div>
-    <div class="proj-card">
-      <span class="proj-badge web">Full Stack &middot; Web</span>
-      <div class="proj-title">The Book Empire</div>
-      <p class="proj-desc">Full-stack online bookstore with authentication, dynamic catalog, cart, and checkout. Relational MySQL database with REST APIs for order processing and inventory management.</p>
-      <div class="proj-tech">
-        <span class="pt">HTML</span><span class="pt">CSS</span><span class="pt">JavaScript</span><span class="pt">MySQL</span>
-      </div>
-      <div class="proj-metric">&#x1F6D2; End-to-end e-commerce with full CRUD</div>
-    </div>
-    <div class="proj-card">
-      <span class="proj-badge mob">Mobile &middot; Flutter</span>
-      <div class="proj-title">TaskNest</div>
-      <p class="proj-desc">Flutter task manager with Supabase auth and database. Material 3 design with Poppins typography. Production APK released, built for Sankar Group internship assignment.</p>
-      <div class="proj-tech">
-        <span class="pt">Flutter</span><span class="pt">Dart</span><span class="pt">Supabase</span><span class="pt">Material 3</span>
-      </div>
-      <div class="proj-metric">&#x1F4F1; Release APK &middot; Physical device tested</div>
-    </div>
-    <div class="proj-card">
-      <span class="proj-badge tool">Full Stack &middot; Web Tool</span>
-      <div class="proj-title">Resume Forge</div>
-      <p class="proj-desc">Resume builder with a built-in real-time ATS compatibility scorer. Live ATS-safe preview, keyword match scoring against any pasted job description, and instant actionable fixes &mdash; built for any job role, not just tech.</p>
-      <div class="proj-tech">
-        <span class="pt">React</span><span class="pt">Vite</span><span class="pt">Tailwind CSS</span><span class="pt">jsPDF</span>
-      </div>
-      <div class="proj-metric">&#x1F4C4; Real-time ATS scoring &middot; client-side only, no backend</div>
-      <div class="proj-links">
-        <a href="https://resume-forge-five-ruddy.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-link">Live Demo &rarr;</a>
-        <a href="https://github.com/haseeb-28/resume-forge" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub &rarr;</a>
-      </div>
-    </div>
-    <div class="proj-card star">
-      <span class="proj-badge saas">Full Stack &middot; AI SaaS</span>
-      <div class="proj-title">SpendWise</div>
-      <p class="proj-desc">AI-powered spend audit tool for startups. Analyzes company expenses and surfaces savings opportunities using the Anthropic API, with a full CI/CD pipeline via GitHub Actions. Built as a client deliverable.</p>
-      <div class="proj-tech">
-        <span class="pt">Next.js 14</span><span class="pt">PocketBase</span><span class="pt">Anthropic API</span><span class="pt">GitHub Actions</span>
-      </div>
-      <div class="proj-metric">&#x26A1; Full CI/CD pipeline &middot; live client deliverable</div>
-      <div class="proj-links">
-        <a href="https://spendwise-ai-mu.vercel.app" target="_blank" rel="noopener noreferrer" class="proj-link">Live Demo &rarr;</a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub &rarr;</a>
-      </div>
-    </div>
-    <div class="proj-card">
-      <span class="proj-badge data">Data Analytics &middot; Dashboard</span>
-      <div class="proj-title">NayePankh Analytics Dashboard</div>
-      <p class="proj-desc">8-page interactive analytics dashboard built as a data analyst internship deliverable &mdash; covering KPI tracking, trend visualization, and drill-down reporting for stakeholder decision-making.</p>
-      <div class="proj-tech">
-        <span class="pt">React</span><span class="pt">Recharts</span><span class="pt">Vercel</span>
-      </div>
-      <div class="proj-metric">&#x1F4CA; 8 dashboard pages &middot; internship deliverable</div>
-      <div class="proj-links">
-        <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">Live Demo &rarr;</a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="sec-label">04 &mdash; Experience</div>
-  <h2 class="sec-title">Work <span class="hl">History</span></h2>
-  <div class="exp-list">
-    <div class="exp-item">
-      <div class="exp-date">Jul &ndash; Aug 2025</div>
-      <div class="exp-line"><div class="exp-dot"></div><div class="exp-track"></div></div>
+    <div class="about-grid">
       <div>
-        <div class="exp-role">MIS Intern &mdash; Information Systems</div>
-        <div class="exp-co">Maroof International Hospital, Islamabad</div>
-        <ul class="exp-bullets">
+        <p>I'm a Full Stack Developer working across <strong>Flutter, Flask, and React</strong>, with an AI/ML foundation from training PyTorch models for real-world classification problems. I care about building things that actually run in production, not just demo well.</p>
+        <p>Currently freelancing on Fiverr and pursuing an MS in Software Engineering at FAST-NUCES Islamabad, while taking on client and internship work in mobile, web, and data.</p>
+      </div>
+      <div class="facts">
+        <div><div class="fact-label">Education</div><div class="fact-value">BSIT, Bahria University</div></div>
+        <div><div class="fact-label">Location</div><div class="fact-value">Islamabad, Pakistan</div></div>
+        <div><div class="fact-label">Graduated</div><div class="fact-value">January 2026</div></div>
+        <div><div class="fact-label">Currently</div><div class="fact-value">MS(SE), FAST-NUCES</div></div>
+        <div><div class="fact-label">Languages</div><div class="fact-value">English, Urdu, Saraiki</div></div>
+        <div><div class="fact-label">Status</div><div class="fact-value">Open to opportunities</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-head">
+      <h2>Stack</h2>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span class="tag">Python</span><span class="tag">Dart</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Flutter</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">Flask</span><span class="tag">PyTorch</span><span class="tag">Supabase</span><span class="tag">MySQL</span>
+        <span class="tag" aria-hidden="true">Python</span><span class="tag" aria-hidden="true">Dart</span><span class="tag" aria-hidden="true">JavaScript</span><span class="tag" aria-hidden="true">SQL</span><span class="tag" aria-hidden="true">Flutter</span><span class="tag" aria-hidden="true">React</span><span class="tag" aria-hidden="true">Next.js</span><span class="tag" aria-hidden="true">Tailwind</span><span class="tag" aria-hidden="true">Flask</span><span class="tag" aria-hidden="true">PyTorch</span><span class="tag" aria-hidden="true">Supabase</span><span class="tag" aria-hidden="true">MySQL</span>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <h3>Languages</h3>
+        <ul><li>Python</li><li>Dart</li><li>JavaScript</li><li>SQL</li><li>HTML / CSS</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h3>Mobile & Web</h3>
+        <ul><li>Flutter (Riverpod)</li><li>React / Next.js</li><li>Tailwind CSS</li><li>TypeScript</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h3>Backend & Data</h3>
+        <ul><li>Flask</li><li>PyTorch</li><li>Supabase / PocketBase</li><li>MySQL / Firebase</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h3>Practices</h3>
+        <ul><li>REST APIs</li><li>Clean Architecture</li><li>CI/CD (GitHub Actions)</li><li>Deep Learning</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="section-head">
+      <h2>Selected Work</h2>
+      <p>One deep case study, two shipped client and freelance builds, and a few smaller projects.</p>
+    </div>
+
+    <div class="flagship glow-loop">
+      <div>
+        <div class="flagship-tag">Flagship — AI / Mobile</div>
+        <h3>Agriguard</h3>
+        <p>AI-powered rice disease detection built as my final year project. A Flutter mobile app calls a Flask REST API running an EfficientNet-B0 model, returning real-time diagnosis with a Supabase-backed history log for farmers to track results over time.</p>
+        <div class="metric-row">
+          <div class="metric"><div class="num">98%</div><div class="label">validation accuracy</div></div>
+          <div class="metric"><div class="num">&lt;2s</div><div class="label">inference response time</div></div>
+        </div>
+        <div class="tags-static">
+          <span class="tag">Flutter</span><span class="tag">Flask</span><span class="tag">PyTorch</span><span class="tag">EfficientNet-B0</span><span class="tag">Supabase</span>
+        </div>
+      </div>
+      <div class="flagship-visual">
+        <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
+          <circle cx="110" cy="110" r="95" stroke="#232936" stroke-width="1.5"/>
+          <circle class="ring-progress-loop" cx="110" cy="110" r="95" stroke="#F2A93B" stroke-width="3" stroke-dasharray="597" stroke-dashoffset="12" stroke-linecap="round" transform="rotate(-90 110 110)"/>
+          <text x="110" y="102" text-anchor="middle" fill="#E9EDF3" font-family="Space Grotesk" font-size="34" font-weight="600">98%</text>
+          <text x="110" y="128" text-anchor="middle" fill="#8B95A5" font-family="Inter" font-size="12">accuracy</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="proj-grid">
+      <div class="proj-card">
+        <h4>Resume Forge</h4>
+        <p>Resume builder with a real-time ATS compatibility scorer. Keyword match scoring against any pasted job description, live ATS-safe preview, entirely client-side.</p>
+        <div class="tags-static"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind</span><span class="tag">jsPDF</span></div>
+        <a href="https://resume-forge-five-ruddy.vercel.app/" class="proj-link" data-magnet="0.2">Live demo →</a>
+      </div>
+      <div class="proj-card">
+        <h4>SpendWise</h4>
+        <p>AI-powered spend audit tool for startups. Analyzes expenses and surfaces savings opportunities using the Anthropic API, shipped as a client deliverable with a full CI/CD pipeline.</p>
+        <div class="tags-static"><span class="tag">Next.js</span><span class="tag">PocketBase</span><span class="tag">Anthropic API</span></div>
+        <a href="https://spendwise-ai-mu.vercel.app" class="proj-link" data-magnet="0.2">Live demo →</a>
+      </div>
+    </div>
+
+    <div class="list-projects">
+      <div class="list-row">
+        <h4>SentimentAI</h4>
+        <p>Movie review sentiment system trained on 50,000 IMDB reviews. 90% accuracy with Logistic Regression, Flutter interface for real-time predictions.</p>
+        <div class="tags-static"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Flutter</span></div>
+      </div>
+      <div class="list-row">
+        <h4>TaskNest</h4>
+        <p>Flutter task manager with Supabase auth, built for a Sankar Group internship assignment. Production APK released and tested on a physical device.</p>
+        <div class="tags-static"><span class="tag">Flutter</span><span class="tag">Supabase</span></div>
+      </div>
+      <div class="list-row">
+        <h4>The Book Empire</h4>
+        <p>Full-stack online bookstore with authentication, dynamic catalog, cart, and checkout on a relational MySQL backend.</p>
+        <div class="tags-static"><span class="tag">HTML/CSS/JS</span><span class="tag">MySQL</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-head">
+      <h2>Experience</h2>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Jul – Aug 2025</div>
+      <div class="exp-role">
+        <h4>MIS Intern — Information Systems</h4>
+        <div class="exp-org">Maroof International Hospital, Islamabad</div>
+        <ul>
           <li>Contributed to app development, software support, and database management within the hospital information system department.</li>
           <li>Applied software and database concepts to real-world healthcare operations across departmental IT projects.</li>
         </ul>
@@ -413,84 +216,94 @@ footer{background:var(--surface);border-top:1px solid var(--border2);padding:22p
     </div>
     <div class="exp-item">
       <div class="exp-date">Dec 2024</div>
-      <div class="exp-line"><div class="exp-dot"></div><div class="exp-track"></div></div>
-      <div>
-        <div class="exp-role">App Development Intern</div>
-        <div class="exp-co">CodeAlpha &middot; Remote</div>
-        <ul class="exp-bullets">
+      <div class="exp-role">
+        <h4>App Development Intern</h4>
+        <div class="exp-org">CodeAlpha, Remote</div>
+        <ul>
           <li>Developed Flutter UI components and integrated backend APIs within an agile development workflow.</li>
           <li>Participated in debugging and performance optimization to deliver functional application modules.</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EDU & CERTS -->
-<section class="edu-certs" id="education">
-  <div class="sec-label">05 &mdash; Credentials</div>
-  <h2 class="sec-title">Education &amp; <span class="hl">Certifications</span></h2>
-  <div class="edu-cert-grid">
-    <div class="edu-card">
-      <div class="edu-chip">Mar 2022 &ndash; Jan 2026</div>
-      <div class="edu-deg">Bachelor of Science in Information Technology</div>
-      <div class="edu-uni">Bahria University Islamabad, Pakistan</div>
-      <div class="edu-courses">Coursework: Data Structures &middot; Database Systems &middot; Artificial Intelligence &middot; Machine Learning &middot; Software Engineering &middot; Web &amp; Mobile Application Development</div>
+  <!-- CREDENTIALS -->
+  <section>
+    <div class="section-head">
+      <h2>Education & Certifications</h2>
     </div>
-    <div class="certs">
-      <div class="cert">
-        <div class="cert-ico">[BA]</div>
-        <div><div class="cert-name">British Airways Data Science Job Simulation</div><div class="cert-org">Forage &middot; April 2026</div></div>
+    <div class="cred-grid">
+      <div>
+        <h3>Education</h3>
+        <div class="cred-item">
+          <div class="name">BS Information Technology</div>
+          <div class="org">Bahria University Islamabad · Mar 2022 – Jan 2026</div>
+        </div>
+        <div class="cred-item">
+          <div class="name">MS Software Engineering (in progress)</div>
+          <div class="org">FAST-NUCES Islamabad</div>
+        </div>
       </div>
-      <div class="cert">
-        <div class="cert-ico">[NX]</div>
-        <div><div class="cert-name">NEXUS 2025 Tech Certification</div><div class="cert-org">NUML University Islamabad</div></div>
-      </div>
-      <div class="cert">
-        <div class="cert-ico">[MH]</div>
-        <div><div class="cert-name">MIS Department Internship Certificate</div><div class="cert-org">Maroof International Hospital &middot; 2025</div></div>
-      </div>
-      <div class="cert">
-        <div class="cert-ico">[CA]</div>
-        <div><div class="cert-name">App Development Virtual Internship Certificate</div><div class="cert-org">CodeAlpha &middot; 2024</div></div>
+      <div>
+        <h3>Certifications</h3>
+        <div class="cred-item">
+          <div class="name">Data Analysis with Python</div>
+          <div class="org">freeCodeCamp</div>
+        </div>
+        <div class="cred-item">
+          <div class="name">Data Science Job Simulation</div>
+          <div class="org">British Airways · Forage</div>
+        </div>
+        <div class="cred-item">
+          <div class="name">SQL Certification</div>
+          <div class="org">IBM · Cognitive Class</div>
+        </div>
+        <div class="cred-item">
+          <div class="name">Career Essentials in Generative AI</div>
+          <div class="org">Microsoft & LinkedIn</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="sec-label">06 &mdash; Contact</div>
-  <div class="contact-grid">
-    <div>
-      <h2 class="contact-title">Let's build<br>something <span style="color:var(--cyan)">great</span><br>together.</h2>
-      <p class="contact-sub" style="margin-top:16px">Open to Flutter internships, freelance projects, and full-time roles. Fast response guaranteed.</p>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <h2>Let's build something together.</h2>
+        <p>Open to full-time roles, freelance projects, and internships across web and mobile.</p>
+        <div class="contact-links">
+          <a href="mailto:haseeb.79e@gmail.com" data-magnet="0.2">haseeb.79e@gmail.com</a>
+          <a href="https://www.linkedin.com/in/haseeb-ur-rehman-40b00930b/" data-magnet="0.2">LinkedIn</a>
+          <a href="https://github.com/haseeb-28" data-magnet="0.2">GitHub</a>
+        </div>
+      </div>
+      <form id="contactForm" class="contact-form">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="What are you looking to build?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitBtn" data-magnet="0.15">Send Message</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
     </div>
-    <div class="contact-cards">
-      <a href="./assets/Haseeb_Ur_Rehman_Resume.pdf" download class="cc resume-cc">
-        <div class="cc-ico">[&#x2B07;]</div>
-        <div><div class="cc-lbl">Resume</div><div class="cc-val">Download PDF</div></div>
-      </a>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=haseeb.79e%40gmail.com" target="_blank" rel="noopener noreferrer" class="cc">
-        <div class="cc-ico">[&#x2709;]</div>
-        <div><div class="cc-lbl">Email</div><div class="cc-val">haseeb.79e@gmail.com</div></div>
-      </a>
-      <a href="https://www.linkedin.com/in/haseeb-ur-rehman-40b00930b/" target="_blank" class="cc">
-        <div class="cc-ico">[in]</div>
-        <div><div class="cc-lbl">LinkedIn</div><div class="cc-val">haseeb-ur-rehman-40b00930b</div></div>
-      </a>
-      <a href="https://github.com/haseeb-28" target="_blank" class="cc">
-        <div class="cc-ico">[gh]</div>
-        <div><div class="cc-lbl">GitHub</div><div class="cc-val">github.com/haseeb-28</div></div>
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
+
+</main>
 
 <footer>
-  <div class="footer-l">haseeb.dev &middot; Islamabad, Pakistan &#x1F1F5;&#x1F1F0;</div>
-  <div class="footer-r">&copy; 2026 Haseeb Ur Rehman &middot; All rights reserved</div>
+  haseeb.dev · Islamabad, Pakistan · © 2026 Haseeb Ur Rehman
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
