@@ -3,29 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Haseeb Ur Rehman — Full Stack Web & App Developer</title>
-<meta name="description" content="Haseeb Ur Rehman, Full Stack Web & App Developer building products with Flutter, Flask, and React, with AI/ML integrated where it matters.">
+<title>Haseeb Ur Rehman — Software Engineer</title>
+<meta name="description" content="Haseeb Ur Rehman, Software Engineer specializing in Flutter, full-stack development, and AI/ML applications.">
 <link rel="icon" href="assets/favicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="bg-blob blob-1"></div>
-<div class="bg-blob blob-2"></div>
-<div class="cursor-glow" id="cursorGlow"></div>
-
 <header>
   <nav>
-    <a href="#" class="logo">haseeb.dev</a>
-    <div class="navlinks">
-      <a href="#work">Work</a>
+    <a href="#home" class="logo">Haseeb Ur Rehman</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
-      <a href="assets/resume.pdf" class="nav-cta" data-magnet="0.25">Resume</a>
+      <a href="assets/resume.pdf" class="nav-cta">Download Resume</a>
     </div>
   </nav>
 </header>
@@ -33,287 +30,244 @@
 <main class="wrap">
 
   <!-- HERO -->
-  <section class="hero" style="border-top:none;padding-top:168px;">
-    <div>
-      <div class="avatar-row">
-        <div class="avatar-ring">
-          <img src="assets/profile.jpeg" alt="Haseeb Ur Rehman" class="avatar-img" onerror="this.parentElement.classList.add('avatar-fallback')">
-        </div>
-      </div>
-      <h1>
-        <span class="line"><span>Haseeb Ur Rehman</span></span>
-        <span class="line"><span>Full Stack Web & App Developer</span></span>
-      </h1>
-      <p class="lede">I build production apps across web and mobile, in Flutter, Flask, and React, with AI/ML integrated where it actually earns its place. BSIT graduate based in Islamabad, Pakistan.</p>
-      <div class="cta-row">
-        <a href="#work" class="btn btn-primary" data-magnet="0.3">View Work</a>
-        <a href="assets/resume.pdf" class="btn btn-ghost" data-magnet="0.3">Download Resume</a>
-      </div>
-    </div>
-    <div class="hero-art">
-      <div class="browser float-loop">
-        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="browser-body">
-          <div class="mock-row">
-            <div class="mock-badge"></div>
-            <div class="mock-nav">
-              <span>Overview</span>
-              <span>Reports</span>
-            </div>
-          </div>
-          <div class="mock-title">Rice Disease Detection</div>
-          <div class="mock-desc">Upload a leaf image to detect disease instantly, powered by a PyTorch model behind a Flask REST API.</div>
-          <div class="mock-stats">
-            <div class="mock-stat">
-              <div class="mock-stat-value">98%</div>
-              <div class="mock-stat-label">Accuracy</div>
-            </div>
-            <div class="mock-stat">
-              <div class="mock-stat-value">&lt;2s</div>
-              <div class="mock-stat-label">Response time</div>
-            </div>
-          </div>
-          <div class="mock-cta">View Full Report</div>
-        </div>
-      </div>
-      <div class="phone float-loop float-loop-delayed">
-        <div class="phone-screen">
-          <div class="phone-notch"></div>
-          <div class="p-header-text">Agriguard</div>
-          <div class="p-item"><div class="p-icon"></div><div class="p-item-text">Scan History</div></div>
-          <div class="p-item"><div class="p-icon"></div><div class="p-item-text">Saved Reports</div></div>
-          <div class="p-item"><div class="p-icon"></div><div class="p-item-text">Settings</div></div>
-          <div class="p-card">
-            <div class="p-card-text">Last scan: Healthy</div>
-            <div class="p-card-sub">98% confidence</div>
-          </div>
-        </div>
-      </div>
+  <section id="home" class="hero" style="border-top:none;">
+    <div class="hero-name">Haseeb Ur Rehman</div>
+    <h1>Software Engineer</h1>
+    <div class="hero-tags">Flutter &nbsp;•&nbsp; Full-Stack &nbsp;•&nbsp; AI/ML</div>
+    <p class="lede">I build practical mobile, web, and AI-powered applications using Flutter, Python, REST APIs, and modern data technologies.</p>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+      <a href="assets/resume.pdf" class="btn btn-ghost">Download Resume</a>
+      <a href="https://github.com/haseeb-28" class="btn btn-ghost">GitHub</a>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="section-head">
-      <h2>About</h2>
-    </div>
+    <div class="section-head"><h2>About Me</h2></div>
+    <p class="about-para">I'm a Software Engineer focused on building practical applications across mobile, web, and AI/ML. My work spans Flutter app development, backend APIs with Flask, and machine learning models trained with PyTorch and scikit-learn. I approach development with an emphasis on problem-solving, clean architecture, and continuous learning.</p>
     <div class="about-grid">
-      <div>
-        <p>I'm a Full Stack Developer working across <strong>Flutter, Flask, and React</strong>, with an AI/ML foundation from training PyTorch models for real-world classification problems. I care about building things that actually run in production, not just demo well.</p>
-        <p>Currently freelancing on Fiverr and pursuing an MS in Software Engineering at FAST-NUCES Islamabad, while taking on client and internship work in mobile, web, and data.</p>
+      <div class="about-card">
+        <h3>Focus</h3>
+        <ul>
+          <li>Software Engineering</li>
+          <li>Flutter Development</li>
+          <li>AI/ML Applications</li>
+        </ul>
       </div>
-      <div class="facts">
-        <div><div class="fact-label">Education</div><div class="fact-value">BSIT, Bahria University</div></div>
-        <div><div class="fact-label">Location</div><div class="fact-value">Islamabad, Pakistan</div></div>
-        <div><div class="fact-label">Graduated</div><div class="fact-value">January 2026</div></div>
-        <div><div class="fact-label">Currently</div><div class="fact-value">MS(SE), FAST-NUCES</div></div>
-        <div><div class="fact-label">Languages</div><div class="fact-value">English, Urdu, Saraiki</div></div>
-        <div><div class="fact-label">Status</div><div class="fact-value">Open to opportunities</div></div>
+      <div class="about-card">
+        <h3>Education</h3>
+        <ul>
+          <li>BS Information Technology, Bahria University Islamabad (Jan 2026)</li>
+          <li>MS Software Engineering, FAST-NUCES Islamabad (in progress)</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <h3>Current Direction</h3>
+        <ul>
+          <li>Software Engineering</li>
+          <li>Mobile Applications</li>
+          <li>AI/ML</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section>
-    <div class="section-head">
-      <h2>Stack</h2>
-    </div>
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <span class="tag">Python</span><span class="tag">Dart</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Flutter</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">Flask</span><span class="tag">PyTorch</span><span class="tag">Supabase</span><span class="tag">MySQL</span>
-        <span class="tag" aria-hidden="true">Python</span><span class="tag" aria-hidden="true">Dart</span><span class="tag" aria-hidden="true">JavaScript</span><span class="tag" aria-hidden="true">SQL</span><span class="tag" aria-hidden="true">Flutter</span><span class="tag" aria-hidden="true">React</span><span class="tag" aria-hidden="true">Next.js</span><span class="tag" aria-hidden="true">Tailwind</span><span class="tag" aria-hidden="true">Flask</span><span class="tag" aria-hidden="true">PyTorch</span><span class="tag" aria-hidden="true">Supabase</span><span class="tag" aria-hidden="true">MySQL</span>
-      </div>
-    </div>
+  <section id="skills">
+    <div class="section-head"><h2>Technical Skills</h2></div>
     <div class="skills-grid">
-      <div class="skill-cat">
+      <div class="skill-card">
         <h3>Languages</h3>
-        <ul><li>Python</li><li>Dart</li><li>JavaScript</li><li>SQL</li><li>HTML / CSS</li></ul>
+        <div class="badges">
+          <span class="badge">Python</span><span class="badge">Dart</span><span class="badge">SQL</span><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span>
+        </div>
       </div>
-      <div class="skill-cat">
-        <h3>Mobile & Web</h3>
-        <ul><li>Flutter (Riverpod)</li><li>React / Next.js</li><li>Tailwind CSS</li><li>TypeScript</li></ul>
+      <div class="skill-card">
+        <h3>Frameworks & Libraries</h3>
+        <div class="badges">
+          <span class="badge">Flutter</span><span class="badge">Flask</span><span class="badge">PyTorch</span><span class="badge">Scikit-learn</span><span class="badge">Pandas</span><span class="badge">NumPy</span><span class="badge">Riverpod</span>
+        </div>
       </div>
-      <div class="skill-cat">
-        <h3>Backend & Data</h3>
-        <ul><li>Flask</li><li>PyTorch</li><li>Supabase / PocketBase</li><li>MySQL / Firebase</li></ul>
+      <div class="skill-card">
+        <h3>Databases</h3>
+        <div class="badges">
+          <span class="badge">Supabase</span><span class="badge">PostgreSQL</span><span class="badge">Firebase</span><span class="badge">MySQL</span><span class="badge">SQLite</span><span class="badge">Hive</span>
+        </div>
       </div>
-      <div class="skill-cat">
-        <h3>Practices</h3>
-        <ul><li>REST APIs</li><li>Clean Architecture</li><li>CI/CD (GitHub Actions)</li><li>Deep Learning</li></ul>
+      <div class="skill-card">
+        <h3>AI/ML & Data</h3>
+        <div class="badges">
+          <span class="badge">Machine Learning</span><span class="badge">Deep Learning</span><span class="badge">NLP</span><span class="badge">Sentiment Analysis</span><span class="badge">Data Analysis</span><span class="badge">Model Deployment</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Tools & Platforms</h3>
+        <div class="badges">
+          <span class="badge">Git</span><span class="badge">GitHub</span><span class="badge">REST API Development</span><span class="badge">Agile</span><span class="badge">Cross-Platform Development</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WORK -->
-  <section id="work">
+  <!-- PROJECTS -->
+  <section id="projects">
     <div class="section-head">
-      <h2>Selected Work</h2>
-      <p>One deep case study, two shipped client and freelance builds, and a few smaller projects.</p>
+      <h2>Featured Work</h2>
+      <p>Quality over quantity — the projects below reflect the skills listed above.</p>
     </div>
 
-    <div class="flagship glow-loop">
-      <div>
-        <div class="flagship-tag">Flagship — AI / Mobile</div>
-        <h3>Agriguard</h3>
-        <p>AI-powered rice disease detection built as my final year project. A Flutter mobile app calls a Flask REST API running an EfficientNet-B0 model, returning real-time diagnosis with a Supabase-backed history log for farmers to track results over time.</p>
-        <div class="metric-row">
-          <div class="metric"><div class="num">98%</div><div class="label">validation accuracy</div></div>
-          <div class="metric"><div class="num">&lt;2s</div><div class="label">inference response time</div></div>
+    <!-- AGRIGUARD FLAGSHIP -->
+    <div class="flagship">
+      <div class="flagship-tag">Flagship Project</div>
+      <h3>Agriguard</h3>
+      <div class="flagship-sub">AI-Powered Rice Disease Detection Application</div>
+
+      <div class="flagship-block">
+        <h4>Problem</h4>
+        <p>Farmers often lack fast, accessible ways to identify rice crop diseases in the field, leading to delayed treatment and crop loss.</p>
+      </div>
+      <div class="flagship-block">
+        <h4>Solution</h4>
+        <p>A Flutter mobile application lets a farmer photograph a rice leaf and receive an instant diagnosis, powered by a deep learning model served through a REST API, with results logged for future reference.</p>
+      </div>
+      <div class="flagship-block">
+        <h4>Technology</h4>
+        <div class="badges">
+          <span class="badge">Flutter</span><span class="badge">Python</span><span class="badge">Flask</span><span class="badge">PyTorch</span><span class="badge">Machine Learning</span><span class="badge">Model Deployment</span><span class="badge">Supabase</span><span class="badge">REST API Development</span>
         </div>
-        <div class="tags-static">
-          <span class="tag">Flutter</span><span class="tag">Flask</span><span class="tag">PyTorch</span><span class="tag">EfficientNet-B0</span><span class="tag">Supabase</span>
-        </div>
       </div>
-      <div class="flagship-visual">
-        <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
-          <circle cx="110" cy="110" r="95" stroke="#232936" stroke-width="1.5"/>
-          <circle class="ring-progress-loop" cx="110" cy="110" r="95" stroke="#F2A93B" stroke-width="3" stroke-dasharray="597" stroke-dashoffset="12" stroke-linecap="round" transform="rotate(-90 110 110)"/>
-          <text x="110" y="102" text-anchor="middle" fill="#E9EDF3" font-family="Space Grotesk" font-size="34" font-weight="600">98%</text>
-          <text x="110" y="128" text-anchor="middle" fill="#8B95A5" font-family="Inter" font-size="12">accuracy</text>
-        </svg>
+      <div class="flagship-block">
+        <h4>Key Features</h4>
+        <ul>
+          <li>Real-time disease detection from a photographed rice leaf</li>
+          <li>98% validation accuracy on the trained classification model</li>
+          <li>Diagnosis history log backed by Supabase</li>
+          <li>Cross-platform Flutter application</li>
+        </ul>
       </div>
+      <div class="flow">
+        <span class="flow-step">Flutter App</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">REST API</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Flask</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">ML Model</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Prediction</span>
+      </div>
+      <a href="https://github.com/haseeb-28" class="proj-link">View on GitHub →</a>
     </div>
 
-    <div class="proj-grid">
-      <div class="proj-card">
-        <h4>Resume Forge</h4>
-        <p>Resume builder with a real-time ATS compatibility scorer. Keyword match scoring against any pasted job description, live ATS-safe preview, entirely client-side.</p>
-        <div class="tags-static"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind</span><span class="tag">jsPDF</span></div>
-        <a href="https://resume-forge-five-ruddy.vercel.app/" class="proj-link" data-magnet="0.2">Live demo →</a>
+    <!-- SMARTMEDS -->
+    <div class="feature-card">
+      <div class="feature-top">
+        <h3>SmartMeds</h3>
+        <span class="status-badge">In Progress · Unreleased</span>
       </div>
-      <div class="proj-card">
-        <h4>SpendWise</h4>
-        <p>AI-powered spend audit tool for startups. Analyzes expenses and surfaces savings opportunities using the Anthropic API, shipped as a client deliverable with a full CI/CD pipeline.</p>
-        <div class="tags-static"><span class="tag">Next.js</span><span class="tag">PocketBase</span><span class="tag">Anthropic API</span></div>
-        <a href="https://spendwise-ai-mu.vercel.app" class="proj-link" data-magnet="0.2">Live demo →</a>
+      <div class="flagship-sub">Medicine Management & Reminder Application</div>
+      <p>A 16-module Flutter application for managing medicines, reminders, and caregiver support. Feature-complete with a full QA checklist, not yet deployed publicly.</p>
+      <div class="badges">
+        <span class="badge">Flutter</span><span class="badge">Dart</span><span class="badge">Riverpod</span><span class="badge">Supabase</span><span class="badge">PostgreSQL</span><span class="badge">SQLite</span><span class="badge">Hive</span><span class="badge">REST API Development</span>
       </div>
+      <h4>Key Features</h4>
+      <ul>
+        <li>Medicine management and dosage reminders</li>
+        <li>Medicine history and stock management</li>
+        <li>Family profiles and caregiver support</li>
+        <li>Offline-first sync architecture</li>
+      </ul>
     </div>
 
-    <div class="list-projects">
-      <div class="list-row">
-        <h4>SentimentAI</h4>
-        <p>Movie review sentiment system trained on 50,000 IMDB reviews. 90% accuracy with Logistic Regression, Flutter interface for real-time predictions.</p>
-        <div class="tags-static"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Flutter</span></div>
+    <!-- SENTIMENTAI -->
+    <div class="feature-card">
+      <h3>SentimentAI</h3>
+      <div class="flagship-sub">Movie Review Sentiment Analysis</div>
+      <p>A sentiment classification system trained on 50,000 IMDB movie reviews, with a Flutter interface for real-time predictions.</p>
+      <div class="badges">
+        <span class="badge">Python</span><span class="badge">Flask</span><span class="badge">Flutter</span><span class="badge">NLP</span><span class="badge">Sentiment Analysis</span><span class="badge">Machine Learning</span>
       </div>
-      <div class="list-row">
+      <h4>Key Features</h4>
+      <ul>
+        <li>90% classification accuracy using Logistic Regression</li>
+        <li>Trained on 50,000 labeled IMDB reviews</li>
+        <li>Real-time predictions through a Flutter front end</li>
+      </ul>
+      <a href="https://github.com/haseeb-28" class="proj-link">View on GitHub →</a>
+    </div>
+
+    <!-- MORE PROJECTS -->
+    <div class="section-head" style="margin-top:56px;"><h2>More Projects</h2></div>
+    <div class="more-grid">
+      <div class="more-card">
         <h4>TaskNest</h4>
-        <p>Flutter task manager with Supabase auth, built for a Sankar Group internship assignment. Production APK released and tested on a physical device.</p>
-        <div class="tags-static"><span class="tag">Flutter</span><span class="tag">Supabase</span></div>
+        <p>Flutter task manager with Supabase authentication, built for an internship assignment. Production APK tested on a physical device.</p>
+        <div class="badges"><span class="badge">Flutter</span><span class="badge">Supabase</span></div>
+        <a href="https://github.com/haseeb-28" class="proj-link">GitHub →</a>
       </div>
-      <div class="list-row">
+      <div class="more-card">
         <h4>The Book Empire</h4>
-        <p>Full-stack online bookstore with authentication, dynamic catalog, cart, and checkout on a relational MySQL backend.</p>
-        <div class="tags-static"><span class="tag">HTML/CSS/JS</span><span class="tag">MySQL</span></div>
+        <p>Full-stack online bookstore with authentication, a dynamic catalog, cart, and checkout on a relational database backend.</p>
+        <div class="badges"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">MySQL</span></div>
+        <a href="https://github.com/haseeb-28" class="proj-link">GitHub →</a>
       </div>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="section-head">
-      <h2>Experience</h2>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">Jul – Aug 2025</div>
-      <div class="exp-role">
-        <h4>MIS Intern — Information Systems</h4>
-        <div class="exp-org">Maroof International Hospital, Islamabad</div>
-        <ul>
-          <li>Contributed to app development, software support, and database management within the hospital information system department.</li>
-          <li>Applied software and database concepts to real-world healthcare operations across departmental IT projects.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">Dec 2024</div>
-      <div class="exp-role">
-        <h4>App Development Intern</h4>
-        <div class="exp-org">CodeAlpha, Remote</div>
-        <ul>
-          <li>Developed Flutter UI components and integrated backend APIs within an agile development workflow.</li>
-          <li>Participated in debugging and performance optimization to deliver functional application modules.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREDENTIALS -->
-  <section>
-    <div class="section-head">
-      <h2>Education & Certifications</h2>
-    </div>
-    <div class="cred-grid">
-      <div>
-        <h3>Education</h3>
-        <div class="cred-item">
-          <div class="name">BS Information Technology</div>
-          <div class="org">Bahria University Islamabad · Mar 2022 – Jan 2026</div>
-        </div>
-        <div class="cred-item">
-          <div class="name">MS Software Engineering (in progress)</div>
-          <div class="org">FAST-NUCES Islamabad</div>
+    <div class="section-head"><h2>Experience</h2></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h4>MIS Intern — Information Systems</h4>
+          <div class="timeline-meta">Maroof International Hospital, Islamabad · Jul – Aug 2025</div>
+          <ul>
+            <li>Contributed to app development, software support, and database management within the hospital's information systems department.</li>
+            <li>Applied software and database concepts to real-world healthcare operations across departmental IT projects.</li>
+          </ul>
         </div>
       </div>
-      <div>
-        <h3>Certifications</h3>
-        <div class="cred-item">
-          <div class="name">Data Analysis with Python</div>
-          <div class="org">freeCodeCamp</div>
-        </div>
-        <div class="cred-item">
-          <div class="name">Data Science Job Simulation</div>
-          <div class="org">British Airways · Forage</div>
-        </div>
-        <div class="cred-item">
-          <div class="name">SQL Certification</div>
-          <div class="org">IBM · Cognitive Class</div>
-        </div>
-        <div class="cred-item">
-          <div class="name">Career Essentials in Generative AI</div>
-          <div class="org">Microsoft & LinkedIn</div>
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h4>App Development Intern</h4>
+          <div class="timeline-meta">CodeAlpha, Remote · Dec 2024</div>
+          <ul>
+            <li>Developed Flutter UI components and integrated backend APIs within an agile development workflow.</li>
+            <li>Participated in debugging and performance optimization to deliver functional application modules.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <h2>Let's build something together.</h2>
-        <p>Open to full-time roles, freelance projects, and internships across web and mobile.</p>
-        <div class="contact-links">
-          <a href="mailto:haseeb.79e@gmail.com" data-magnet="0.2">haseeb.79e@gmail.com</a>
-          <a href="https://www.linkedin.com/in/haseeb-ur-rehman-40b00930b/" data-magnet="0.2">LinkedIn</a>
-          <a href="https://github.com/haseeb-28" data-magnet="0.2">GitHub</a>
-        </div>
-      </div>
-      <form id="contactForm" class="contact-form">
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your name">
-        </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com">
-        </div>
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="What are you looking to build?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" id="submitBtn" data-magnet="0.15">Send Message</button>
-        <p class="form-status" id="formStatus"></p>
-      </form>
+  <section id="contact">
+    <div class="section-head"><h2>Let's Build Something Useful</h2></div>
+    <p class="about-para">Open to Software Engineering roles, Flutter opportunities, and freelance collaboration.</p>
+    <div class="cta-row">
+      <a href="https://github.com/haseeb-28" class="btn btn-ghost">GitHub</a>
+      <a href="https://www.linkedin.com/in/haseeb-ur-rehman-40b00930b/" class="btn btn-ghost">LinkedIn</a>
+      <a href="mailto:haseeb.79e@gmail.com" class="btn btn-primary">Email Me</a>
     </div>
   </section>
 
 </main>
 
 <footer>
-  haseeb.dev · Islamabad, Pakistan · © 2026 Haseeb Ur Rehman
+  <div class="footer-name">Haseeb Ur Rehman</div>
+  <div class="footer-role">Software Engineer</div>
+  <div class="footer-links">
+    <a href="https://github.com/haseeb-28">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/haseeb-ur-rehman-40b00930b/">LinkedIn</a> ·
+    <a href="mailto:haseeb.79e@gmail.com">Email</a>
+  </div>
+  <div class="footer-copy">© 2026 Haseeb Ur Rehman</div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
